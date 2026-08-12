@@ -11,8 +11,11 @@ while status:
     print("7.Edit Expense")
     print("8.Today's Expense")
     print("9.Exit")   
-
-    n=int(input("Enter your choice : "))
+    try:
+       n=int(input("Enter your choice : "))
+    except ValueError:
+        print("Invalid input")
+        continue
     match n:
         case 1:
             tracker.AddExpense()
@@ -32,3 +35,6 @@ while status:
             tracker.ExpenseOfToday()
         case 9:
              status=False
+        case _:
+            print("Invalid input")
+        
